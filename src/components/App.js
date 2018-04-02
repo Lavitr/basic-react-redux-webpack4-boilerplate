@@ -1,9 +1,12 @@
 import React from 'react'
+import Button from '../containers/Button'
 
- const App = () => (
-  <div>
-   <p>Hello React</p>
+let App = () => (
+  <div >
+    <Button />
   </div>
+
 )
 
 export default App;
+

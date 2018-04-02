@@ -1,0 +1,16 @@
+Action creators are exactly that—functions that create actions. It's easy to conflate the terms “action” and “action creator”, so do your best to use the proper term.
+
+In Redux, action creators simply return an action:
+
+. Remember that actions only describe the fact that something happened, but don't describe how the application's state changes.
+
+Reducers specify how the application's state changes in response to actions sent to the store.
+ Remember that actions only describe the fact that something happened, but don't describe how the application's state changes.
+ 
+ 
+ This tutorial is for  people who is  completely new to Redux  and haven't disptched any action yet .
+ When we start to  learn some new programming language or framework  the first thing we about to do is to  write "Hello world" , in other words to perform some tiny  task .So to say "Hello World" in Redux would be equal to 
+ dispatch a simple action . But somehow for me it wasn't an easy  task at all .Actually I had spent too much time before I finally succeeded to dispatch first action.My thoughts was kind of "Should I write Action first or Reducer first.
+ And even if I write action and reducer how my React component supposed to know about  both of them and so on. "
+  
+ 
