@@ -8,9 +8,66 @@ Reducers specify how the application's state changes in response to actions sent
  Remember that actions only describe the fact that something happened, but don't describe how the application's state changes.
  
  
- This tutorial is for  people who is  completely new to Redux  and haven't disptched any action yet .
- When we start to  learn some new programming language or framework  the first thing we about to do is to  write "Hello world" , in other words to perform some tiny  task .So to say "Hello World" in Redux would be equal to 
- dispatch a simple action . But somehow for me it wasn't an easy  task at all .Actually I had spent too much time before I finally succeeded to dispatch first action.My thoughts was kind of "Should I write Action first or Reducer first.
- And even if I write action and reducer how my React component supposed to know about  both of them and so on. "
+  This tutorial is for  people who is  completely new to Redux  and haven't disptched any action yet  :-) .
+ When we start to  learn some new programming language or framework usually the first thing we about to do is to  write "Hello world" , in other words to perform some tiny  task .So to say "Hello World" in Redux would be equal to 
+ dispatch a simple action . But somehow for me it wasn't an easy  task at all .Actually I had spent quite a lot of time before I finally succeeded to dispatch my  first action.My thoughts was kind of "Should I write Action first or Reducer first?
+ If I write action and reducer how my React component supposed to know about  both of them ?How all this works under the hood ?And so on... ".Dan in his video shows several ways how to connect React Component to Redux and it's
+ made me even more confused about everything.
+  Later ,when I was writing quite big application with React-Redux I realised what generally there is no need to know what's going on under the hood and to connect Redux to React  enought to know only one method .
+  And in order to dipatch action there is quite clear sequence of steps which I am going to outline below.Well this is my personall opinion and probably a lot of expirience developers wouldn't agry with me.
+   So hopefully I'll save some time to wanna be a React-Redux developers. 
+   
+   1 . We have to write an 'ACTION CREATOR' function first.'ACTION CREATOR'-function that return Redux Action .Actions are plain JavaScript objects .And I think we have to make it  clear what when we need to create 
+   a new action  we about to write 'ACTION CREATOR' function  and not just action .
+   So here sayHello-action creator function.
+   export const sayHello = () => ({
+    type: "HELLO_REACT"
+})
+
+2 Next step is to write reducer for our action.
+
+const reducer = (state = {}, action) => {
+    switch (action.type) {
+      case 'HELLO_REACT':
+        return { ...state, say : 'Hello World Redux'  };
+      default:
+        return state;
+    }
+  };
+  export default reducer;
+  
+   I don't want to enter in a lot of details in this tutorial about  'state' and so.I just want you to pay attention to the 'action.type' ,which we use in reducer .
+ 
+   3 Last step but most chalenging is to pass our Redax to React component.For this porpose I will use function 'connnect' and  two another functions related to connect  ' mapDispatchToProps'  
+   and  'mapStateToProps'
+   
+   let Button = ({ whatsUp, saySomething }) => (
+  <div >
+    <button onClick={saySomething}>PRESS TO DISPATCH FIRST ACTION</button>
+    <h2>{whatsUp}</h2>
+  </div>
+)
+
+const mapStateToProps = (state) => ({
+  whatsUp: state.say,
+})
+
+const mapDispatchToProps = {
+  saySomething: sayHello
+}
+
+Button = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Button)
+
+export default Button;
+
+ I don't see any use in understanding how 'connect ' works under the hood .I think it's quite enough to know the syntax  and that's it .But two another function ' mapDispatchToProps'  
+   and  'mapStateToProps' very usefull and it's really impotant to know kow to pass props and how to dispatch action using this two function.
+   Because main point of this tutorial just to dispatch a tiny action I will only shortly explain that's going on in our component <Button>.
+ 
+  
+   
   
  
