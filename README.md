@@ -1,5 +1,5 @@
 # basic-react-redux-webpack4-boilerplate
-Basic React-Webpack4 boilerplate with classic file structure  for React/Redux application .
+Basic React-Webpack4 boilerplate with file structure  for React-Redux application .
 
 ### Usage
 
@@ -10,12 +10,10 @@ npm install
 npm start
 open http://localhost:8080  (should start automatically )
 
-Now edit `src/components/App.js`.  
 
 ## Available Commands
 
 - `npm start` - start the dev server
-- `npm clean` - delete the dist folder
 - `npm run dev` - create a developer build in `dist` folder
 - `npm run build` - create a production ready build in `dist` folder
 - `npm test` - run all tests
