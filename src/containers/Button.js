@@ -2,24 +2,24 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { sayHello } from '../actions'
 
-let Button = ({ whatsUp, state, saySomething }) => (
+let Button = ({ whatsUp, stateObject, saySomething }) => (
 
   <div >
     <button onClick={saySomething}>PRESS TO DISPATCH FIRST ACTION</button>
     <h2>{whatsUp}</h2>
-    <button onClick={() => console.log(state)} >Press to inspect STATE in console panel</button>
+    <button onClick={() => console.log(stateObject)} >Press to inspect STATE in console panel</button>
   </div>
 
 )
 
 const mapStateToProps = (state) => ({
   whatsUp: state.say,
-  state: state
+  stateObject: state
 })
 
-const mapDispatchToProps = {
-  saySomething: sayHello
-}
+const mapDispatchToProps = (dispatch) => ({
+  saySomething: () => { dispatch(sayHello())}
+})
 
 Button = connect(
   mapStateToProps,
