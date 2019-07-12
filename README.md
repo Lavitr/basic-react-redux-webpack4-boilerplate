@@ -1,5 +1,5 @@
 # basic-react-redux-webpack4-boilerplate
-Basic React-Webpack4 boilerplate with file structure  for React-Redux application .
+Basic React-Webpack4 boilerplate with file structure for React-Redux application (last update 13.03.2019).
 
 ### Usage
 
